@@ -69,4 +69,4 @@ Like the above, but for the blocked admins array.\
 Used on add-on load and by **removeBlockedAdmin()** and **removeBlockedAdminbyIndex()**.
 <br/><br/>
 
-[^1]: Admins will have all their servers' IPs automatically added to the IP ban list. If you want to block a specific server, add the IP instead.
+[^1]: Admins will have all their servers hidden from the server list. If you want to block a specific server, add the IP instead.
