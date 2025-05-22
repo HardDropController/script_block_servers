@@ -89,13 +89,9 @@ function reindexBlockedIPs(){
 
 $BANs_count = 0;
 $BANs[$BANs_count++ - 1] = "Feet Club";
-$BANs[$BANs_count++ - 1] = "Centerman12346";
-$BANs[$BANs_count++ - 1] = "Centerman123456";
-$BANs[$BANs_count++ - 1] = "nqaqhy";
-$BANs[$BANs_count++ - 1] = "KickKat";
-function isAdminBlocked( %server ){
+function isAdminBlocked( %adminName ){
 	for( %i = 0; %i < $BANs_count; %i++ ){
-		if( strMatch( %server.adminName, $BANs[%i] ) )
+		if( strMatch( %adminName, $BANs[%i] ) )
 			return true;
 	}
 	
@@ -117,7 +113,7 @@ function dumpBlockedAdmins(){
 function addBlockedAdmin( %adminName ){
 	echo( "\c2Blocking admin" SPC %adminName @ "..." );
 	
-	if( isAdminBlocked( %ip ) )
+	if( isAdminBlocked( %adminName ) )
 	{
 		echo( "\c2Admin already blocked." );
 		return;
@@ -193,7 +189,7 @@ if(isFile("config/client/bs_byIP.cs")){
 
 
 function isServerBlocked( %server ){
-	return isAdminBlocked( %server ) || isIPBlocked( getServerSOAddress( %server ) );
+	return isAdminBlocked( %server.adminName ) || isIPBlocked( getServerSOAddress( %server ) );
 }
 
 
