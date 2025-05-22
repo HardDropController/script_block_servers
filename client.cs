@@ -260,6 +260,7 @@ package blockPlayerServers
 	
 	// Just straight-up reimplementing this function. I can't prevent pinging the servers in it otherwise.
 	// Lifted directly from https://github.com/Elletra/bl-decompiled/blob/main/v21/client/scripts/allClientScripts.cs
+ 	// Will probably remove later since vanilla filters ping filtered servers anyway
 	function ServerInfoSO_StartPingAll()
 	{
 		echo("");
