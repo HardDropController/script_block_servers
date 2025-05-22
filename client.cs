@@ -196,7 +196,7 @@ function isServerBlocked( %server ){
 function blankServerSO( %server ){
 	echo( "\c2Blanking server info (" @ getServerSOAddress( %server ) @ ")..." );
 	%server.ping = 999999;
-	addBlockedIP( getServerSOAddress( %server ) );
+	// addBlockedIP( getServerSOAddress( %server ) );
 }
 
 
