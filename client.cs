@@ -220,18 +220,30 @@ function getServerSOAddress( %server ){
 }
 
 
-function stripPort( %address ){
-	%addressLocation = strPos( %address, ":" );
-	%address = getSubStr( %address, 0, %addressLocation );
-	
-	return %address;
-}
+// function stripPort( %address ){
+// 	%addressLocation = strPos( %address, ":" );
+// 	%address = getSubStr( %address, 0, %addressLocation );
+// 	
+// 	return %address;
+// }
 
 
 function exportBannedShitWhatever(){
 	echo( "\c4Exporting banned users and IPs list..." );
 	export("$BANs*", "config/client/bs_byName.cs");
 	export("$blockedIPs*", "config/client/bs_byIP.cs");
+}
+
+
+function getServerFromIP( %addr ){
+	for( %i = 0; %i < $ServerSO_count; %i++ ){
+		%the = $ServerSO[%i].ip @ ":" @ $ServerSO[%i].port;
+		echo( %the SPC "$=" SPC %addr @ "?" );
+		if( strMatch( %the, %addr ) )
+			return $ServerSO[%i];
+	}
+	
+	return 0;
 }
 
 
@@ -296,7 +308,7 @@ package blockPlayerServers
 	
 	function onSimplePingReceived(%address, %ping, %slot)
 	{
-		if( isIPBlocked( %address ) ){
+		if( isServerBlocked( getServerFromIP( %address ) ) ){
 			echo( "\c2IP (" @ %address @ ") is blocked, ignoring (ping recieved)." );
 			return;
 		}
@@ -307,7 +319,7 @@ package blockPlayerServers
 	
 	function onSimplePingTimeout(%address, %slot)
 	{
-		if( isIPBlocked( %address ) ){
+		if( isServerBlocked( getServerFromIP( %address ) ) ){
 			echo( "\c2IP (" @ %address @ ") is blocked, ignoring (timeout)." );
 			return;
 		}
