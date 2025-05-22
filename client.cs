@@ -238,7 +238,7 @@ function exportBannedShitWhatever(){
 function getServerFromIP( %addr ){
 	for( %i = 0; %i < $ServerSO_count; %i++ ){
 		%the = $ServerSO[%i].ip @ ":" @ $ServerSO[%i].port;
-		echo( %the SPC "$=" SPC %addr @ "?" );
+		// echo( %the SPC "$=" SPC %addr @ "?" );
 		if( strMatch( %the, %addr ) )
 			return $ServerSO[%i];
 	}
