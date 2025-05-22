@@ -13,7 +13,7 @@ Prints the currently blocked IPs by index to the console, like:
 etc.
 ```
 ### addBlockedIP( string %ip )
-Adds the specified IP to the IP ban list. Specified as "IP:PORT".
+Adds the specified IP to the IP ban list. Specified as **IP:PORT**.
 <br/><br/>
 ### removeBlockedIP( string %address )
 Removes the specified IP from the IP ban list. This function will fail if the specified IP is not found.
@@ -50,6 +50,9 @@ Like **isIPBlocked()**, but for usernames.
 Immediately exports the admin and IP ban lists to **config/client/**.\
 IPs are saved to **"bs_byIP.cs"** and admin names are saved to **"bs_byName.cs"**\
 Used on game shutdown.
+<br/><br/>
+### getServerSOAddress( ServerSO %server ) -> string
+Returns the server address in **IP:PORT** format.
 <br/><br/>
 ### isServerBlocked( ServerSO %server )
 Checks the given server if it's blocked. Runs **isAdminBlocked()** and **isIPBlocked()**.
