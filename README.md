@@ -1,5 +1,5 @@
 # script_block_servers
-**script_block_servers** is a console tool that blocks users and servers from appearing in the server list. A GUI will be created... eventually...
+**script_block_servers** is a console tool that blocks users and servers from appearing in the server list, comes with one admin[^1] blocked by default. A GUI will be created... eventually...
 
 ## How to use
 **script_block_servers** requires [RedBlocklandLoader](https://gitlab.com/Eagle517/redblocklandloader) and the [PackageAnyFunction](https://gitlab.com/Queuenard/packageanyfunction) module. This add-on packages functions relating to populating the server list / pinging servers, which are protected as they are part of the default scripts.
@@ -33,7 +33,7 @@ Prints the currently blocked Admin user names by index to the console, like:
 etc.
 ```
 <br/><br/>
-### addBlockedAdmin( string %adminName )[^1]
+### addBlockedAdmin( string %adminName )[^2]
 Like **addBlockedIP()**, but for usernames.
 <br/><br/>
 ### removeBlockedAdmin( string %adminName )
@@ -69,4 +69,5 @@ Like the above, but for the blocked admins array.\
 Used on add-on load and by **removeBlockedAdmin()** and **removeBlockedAdminbyIndex()**.
 <br/><br/>
 
-[^1]: Admins will have all their servers hidden from the server list. If you want to block a specific server, add the IP instead.
+[^1]: Blocked admin name is "Feet Club"
+[^2]: Admins will have all their servers hidden from the server list. If you want to block a specific server, add the IP instead.
